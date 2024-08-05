@@ -1,6 +1,10 @@
 #include "sort.h"
-
-
+/**
+ * simple_swp - Swaps two nodes
+ *
+ * @first: first node to be swapped
+ * @second: second node to be swapped
+ */
 void simple_swp(int *first, int *second)
 {
   int temp;
@@ -9,7 +13,12 @@ void simple_swp(int *first, int *second)
   *first = *second;
   *second = temp;
 }
-
+/**
+ * selection_sort - Sorts an array of integers with selection sort
+ *
+ * @array: The array to be sorted
+ * @size: The size of the array
+ */
 void selection_sort(int *array, size_t size)
 {
   size_t i, j, pos;
