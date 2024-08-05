@@ -15,7 +15,6 @@ void swap_nodes(listint_t **head, listint_t *first_node, listint_t *second_node)
     {
         second_node->next->prev = first_node;
     }
-
     first_node->next = second_node->next;
     second_node->prev = first_node->prev;
 
