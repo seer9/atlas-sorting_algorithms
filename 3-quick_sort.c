@@ -8,11 +8,11 @@
  */
 void simple_swp(int *first, int *second)
 {
-    int temp;
+	int temp;
 
-    temp = *first;
-    *first = *second;
-    *second = temp;
+	temp = *first;
+	*first = *second;
+	*second = temp;
 }
 /**
  * lomuto_part - simply pivots the array
@@ -25,27 +25,28 @@ void simple_swp(int *first, int *second)
  */
 int lomuto_part(int *array, int low, int high, size_t size)
 {
-    int pivot = array[high];
-    int i = low;
-    int j;
+	int pivot = array[high];
+	int i = low;
+	int j;
 
-    for (j = low; j < high; j++)
-    {
-        if (array[j] <= pivot)
-        {
-            if (i != j)
-            {
-                simple_swp(&array[i], &array[j]);
-            }
-            i++;
-        }
-    }
-    if (i != high)
-    {
-        simple_swp(&array[i], &array[high]);
-    }
-    print_array(array, size);
-    return (i);
+	for (j = low; j < high; j++)
+	{
+		if (array[j] <= pivot)
+		{
+			if (i != j)
+			{
+				simple_swp(&array[i], &array[j]);
+				print_array(array, size);
+			}
+			i++;
+		}
+	}
+	if (i != high)
+	{
+		simple_swp(&array[i], &array[high]);
+		print_array(array, size);
+	}
+	return (i);
 }
 /**
  * sort_quik - Sorts an array of integers with quick sort
@@ -57,22 +58,23 @@ int lomuto_part(int *array, int low, int high, size_t size)
  */
 void sort_quik(int *array, int low, int high, size_t size)
 {
-    if (low < high)
-    {
-        int pivot_index = lomuto_part(array, low, high, size);
-        sort_quik(array, low, pivot_index - 1, size);
-        sort_quik(array, pivot_index + 1, high, size);
-    }
+	if (low < high)
+	{
+		int pivot_index = lomuto_part(array, low, high, size);
+
+		sort_quik(array, low, pivot_index - 1, size);
+		sort_quik(array, pivot_index + 1, high, size);
+	}
 }
 /**
- * quick_sort - Sorts an array of integers with sort_quik
- *
- * @array: The array to be sorted
- * @size: The size of the array
- */
+* quick_sort - Sorts an array of integers with sort_quik
+*
+* @array: The array to be sorted
+* @size: The size of the array
+*/
 void quick_sort(int *array, size_t size)
 {
-    if (array == NULL || size < 2)
-        return;
-    sort_quik(array, 0, size - 1, size);
+	if (array == NULL || size < 2)
+		return;
+	sort_quik(array, 0, size - 1, size);
 }
