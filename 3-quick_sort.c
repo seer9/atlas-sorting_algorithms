@@ -29,20 +29,20 @@ int lomuto_part(int *array, int low, int high, size_t size)
     {
         if (array[j] <= pivot)
         {
-            i++;
             if (i != j)
             {
                 simple_swp(&array[i], &array[j]);
                 print_array(array, size);
             }
+            i++;
         }
     }
-    if (array[high] < array[i + 1])
+    if (i != high)
     {
-        simple_swp(&array[i + 1], &array[high]);
-        print_array(array, size);
+    simple_swp(&array[i], &array[high]);
+    print_array(array, size);
     }
-    return i + 1;
+    return (i);
 }
 
 
@@ -59,15 +59,7 @@ void sort_helper(int *array, int low, int high, size_t size)
 
 void quick_sort(int *array, size_t size)
 {
-  int low, high, pivot;
-  
-  low = 0;
-  high = size - 1;
-
-  if (low < high)
-  {
-    pivot = lumuto_part(array, low, high, size);
-    quick_sort(array, low, pi - 1);
-    quick_sort(array, pi + 1, high);
-  }
+    if (array == NULL || size < 2)
+        return;
+    quicksort_helper(array, 0, size - 1, size);
 }
