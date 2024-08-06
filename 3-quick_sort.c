@@ -53,6 +53,8 @@ int lomuto_part(int *array, int low, int high, size_t size)
  * sort_quik - Sorts an array of integers with quick sort
  *
  * @array: The array to be sorted
+ * @low: The lower bound of the array or left
+ * @high: The upper bound of the array or right
  * @size: The size of the array
  */
 void sort_quik(int *array, int low, int high, size_t size)
