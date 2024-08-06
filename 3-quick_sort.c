@@ -43,7 +43,7 @@ int lomuto_part(int *array, int low, int high, size_t size)
 	}
 	if (i != high)
 	{
-		simple_swp(&array[i], &array[high]);
+		simple_swp(&array[high], &array[i]);
 		print_array(array, size);
 	}
 	return (i);
