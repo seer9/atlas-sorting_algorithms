@@ -14,8 +14,15 @@ void simple_swp(int *first, int *second)
     *first = *second;
     *second = temp;
 }
-
-
+/**
+ * lomuto_part - simply pivots the array
+ *
+ * @array: The array to be sorted
+ * @low: The lower bound of the array or left
+ * @high: The upper bound of the array or right
+ * @size: The size of the array
+ * Return: The pivot index
+ */
 int lomuto_part(int *array, int low, int high, size_t size)
 {
     int pivot, i, j;
@@ -42,22 +49,30 @@ int lomuto_part(int *array, int low, int high, size_t size)
     }
     return (i);
 }
-
-
-void sort_helper(int *array, int low, int high, size_t size)
+/**
+ * sort_quik - Sorts an array of integers with quick sort
+ *
+ * @array: The array to be sorted
+ * @size: The size of the array
+ */
+void sort_quik(int *array, int low, int high, size_t size)
 {
     if (low < high)
     {
         int pivot_index = lomuto_part(array, low, high, size);
-        sort_helper(array, low, pivot_index - 1, size);
-        sort_helper(array, pivot_index + 1, high, size);
+        sort_quik(array, low, pivot_index - 1, size);
+        sort_quik(array, pivot_index + 1, high, size);
     }
 }
-
-
+/**
+ * quick_sort - Sorts an array of integers with sort_quik
+ *
+ * @array: The array to be sorted
+ * @size: The size of the array
+ */
 void quick_sort(int *array, size_t size)
 {
     if (array == NULL || size < 2)
         return;
-    sort_helper(array, 0, size - 1, size);
+    sort_quik(array, 0, size - 1, size);
 }
