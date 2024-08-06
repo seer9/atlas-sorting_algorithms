@@ -37,7 +37,6 @@ int lomuto_part(int *array, int low, int high, size_t size)
 			if (i != j)
 			{
 				simple_swp(&array[i], &array[j]);
-				print_array(array, size);
 			}
 			i++;
 		}
@@ -45,8 +44,8 @@ int lomuto_part(int *array, int low, int high, size_t size)
 	if (i != high)
 	{
 		simple_swp(&array[i], &array[high]);
-		print_array(array, size);
 	}
+	print_array(array,size);
 	return (i);
 }
 /**
